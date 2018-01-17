@@ -30,8 +30,8 @@ function drawSnake() {
 }
 
 function createFood() {
-	food.x = Math.floor(Math.random() * ((width / 10) - (squareSize / 10) + 1) + (squareSize / 10)) * 10;
-	food.y = Math.floor(Math.random() * ((height / 10) - (squareSize / 10) + 1) + (squareSize / 10)) * 10;
+	food.x = Math.floor(Math.random() * (((width - squareSize) / 10) - (0 / 10) + 1) + (0 / 10)) * 10;
+	food.y = Math.floor(Math.random() * (((height - squareSize) / 10) - (0 / 10) + 1) + (0 / 10)) * 10;
 
 	for(let i=0; i < snake.length; i++) {
 		if(checkCollision(snake[i], food)) createFood();
@@ -116,6 +116,7 @@ function run() {
 function restart () {
 	clearInterval(interval);
 	score = 0;
+	scoreBoard.innerHTML = score;
 	snake = [];
 	direction = 'left';
 	run();
